@@ -35,4 +35,4 @@ EN
 [Make a README](https://www.makeareadme.com/)
 
 ## Thanks to:
-
+Vlad Manicescu :)
