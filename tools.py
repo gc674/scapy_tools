@@ -35,14 +35,16 @@ class arptable:
 
 class regexfilter:
     'Class used to return specific strings patterns depending on operating system'
-    def __init__(self):
+    def __init__(self, text):
+        self.text = text
+        self.match = None
         self.windows_mac = r'(\w{2}-){5}\w{2}'
         self.linux_mac = r'(\w{2}:){5}\w{2}'
         self.ip = r'\d*\.\d*\.\d*\.\d*'
 
-    def search(self):
-        'search and return found'
-        pass
+    def search(self, pattern):
+        'search and return found match'
+        self.match = re.search(pattern, self.text).group()
 
 
 class sendcommand:
