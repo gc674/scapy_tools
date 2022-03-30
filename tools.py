@@ -48,7 +48,7 @@ class regexfilter:
 
 
 class sendcommand:
-    'Class used to send a command end return output'
+    'Class used to send a command and return output'
     def __init__(self, command):
         self.command = command
         self.reply = []
