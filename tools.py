@@ -1,5 +1,7 @@
 import sys
+import re
 import scapy.all as scapy
+import subprocess
 
 
 class osfinder:
@@ -29,3 +31,25 @@ class arptable:
         for element in result:
             client_reply = {"ip": element[1].psrc, "mac": element[1].hwsrc}
             self.arplist.append(client_reply)
+
+
+class regexfilter:
+    'Class used to return specific strings patterns depending on operating system'
+    def __init__(self):
+        self.windows_mac = r'(\w{2}-){5}\w{2}'
+        self.linux_mac = r'(\w{2}:){5}\w{2}'
+        self.ip = r'\d*\.\d*\.\d*\.\d*'
+
+    def search(self):
+        'search and return found'
+        pass
+
+
+class sendcommand:
+    'Class used to send a command end return output'
+    def __init__(self, command):
+        self.command = command
+        self.reply = []
+
+    def get_answer(self):
+        self.reply = subprocess.check_output(self.command).decode("UTF-8").splitlines()
